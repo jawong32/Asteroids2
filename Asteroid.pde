@@ -1,24 +1,18 @@
 class Asteroid extends Floater {
   private double rotSpeed;
-  private double ogX;
-  private double ogY;
 
   public Asteroid() {
     corners = (int) (Math.random() * 4) + 10;
     myColor = color(0);
-    myCenterX = Math.random() * 801;
-    myCenterY = Math.random() * 801;
     xCorners = new int[corners];
     yCorners = new int[corners];
     xCorners[0] = (int) (Math.random() * 100) + 60;
     yCorners[0] = (int) (Math.random() * 50) + 25;
     xCorners[corners / 2] = xCorners[0] + (int) (Math.random() * 25) + 50;
     yCorners[corners / 2] = yCorners[0];
-
-    myCenterX = (xCorners[0] + xCorners[corners / 2]) / 2;
-    myCenterY = yCorners[0];
-    ogX = myCenterX;
-    ogY = myCenterY;
+    
+    myCenterX = (xCorners[0] + xCorners[corners / 2]) / 2 + Math.random() * 801;
+    myCenterY = yCorners[0] + Math.random() * 801;
 
     for (int i = 1; i < corners / 2; i++) {
       int nextX;
@@ -42,7 +36,7 @@ class Asteroid extends Floater {
 
     myXspeed = Math.random() * -2 + 1;
     myYspeed = Math.random() * -2 + 1;
-    myPointDirection = Math.random() * 361 * (180 / PI);
+    myPointDirection = 0;//Math.random() * 361 * (180 / PI);
     rotSpeed = Math.random() * 0.01 * (180 / PI);
   }
 
@@ -52,7 +46,7 @@ class Asteroid extends Floater {
     stroke(255);    
     strokeWeight(5);
     pushMatrix();
-    translate((float) (myCenterX - ogX), (float) (myCenterY - ogY));
+    translate((float) myCenterX, (float) myCenterY);
     float dRadians = (float)(myPointDirection*(Math.PI/180));
     rotate(dRadians);
     beginShape();
@@ -62,7 +56,6 @@ class Asteroid extends Floater {
     endShape(CLOSE);
     popMatrix();
     //ellipse((float) myCenterX, (float) myCenterY, 30, 30);
-
     strokeWeight(1);
   }
 

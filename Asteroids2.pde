@@ -7,7 +7,7 @@ public void setup() {
   for (int i = 0; i < stars.length; i++) {
     stars[i] = new Star();
   }
-  for (int i = 0; i < 20; i++) {
+  for (int i = 0; i < 35; i++) {
     asteroids.add(new Asteroid());
   }
 }
