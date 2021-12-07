@@ -1,4 +1,4 @@
-import java.util.*;
+//import java.util.*;
 
 Spaceship ship = new Spaceship();
 Star[] stars = new Star[65];
@@ -22,15 +22,21 @@ public void draw() {
   }
   ship.move();
   ship.show();
-  fill(0, 0, 0, 200);
-
-  Iterator<Asteroid> astItr = asteroids.listIterator();
+  /*Iterator<Asteroid> astItr = asteroids.listIterator();
   while (astItr.hasNext()) {
     Asteroid ast = astItr.next();
     ast.move();
     ast.show();
     if (ast.collide(ship.getX(), ship.getY())) {
       astItr.remove();
+    }
+  }*/
+  for (int i = 0; i < asteroids.size(); i++) {
+    Asteroid asteroid = asteroids.get(i);
+    asteroid.move();
+    asteroid.show();
+    if (asteroid.collide(ship.getX(), ship.getY())) {
+      asteroids.remove(i);
     }
   }
 }
