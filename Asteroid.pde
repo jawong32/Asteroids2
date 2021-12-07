@@ -3,7 +3,7 @@ class Asteroid extends Floater {
   private double size;
 
   public Asteroid() {
-    size = Math.random() * 40 + 30;
+    size = Math.random() * 10 + 30;
     double[][] ddh = new double[64][2];
     double t = Math.PI / 32; 
     for (int i = 0; i < ddh.length; i++) {

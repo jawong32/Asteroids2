@@ -13,24 +13,30 @@ public void setup() {
 }
 
 public void draw() {
-  background(0);
+  background(0); 
+  if (asteroids.size() < 40) {
+    for (int i = 0; i < (int) (Math.random() * 5) + 1; i++) {
+      asteroids.add(new Asteroid());
+    }
+  }
+
   for (Star star : stars) {
-    star.move();
+    star.move(); 
     star.show();
   }
-  ship.move();
-  ship.show();
+  ship.move(); 
+  ship.show(); 
 
   // Hurts performance but prevents asteroids
   // from flashing when collision occurs
-  ArrayList<Asteroid> pseudoItr = new ArrayList<Asteroid>();
+  ArrayList<Asteroid> pseudoItr = new ArrayList<Asteroid>(); 
   for (Asteroid asteroid : asteroids) {
     pseudoItr.add(asteroid);
   }
 
   for (Asteroid asteroid : pseudoItr) {
-    asteroid.move();
-    asteroid.show();
+    asteroid.move(); 
+    asteroid.show(); 
     if (asteroid.collide(ship.getX(), ship.getY())) {
       asteroids.remove(asteroid);
     }
@@ -55,10 +61,10 @@ public void keyPressed() {
   }
 
   if (key == 'h') {
-    ship.setXSpeed(0);
-    ship.setYSpeed(0);
-    ship.setX(Math.random() * 801);
-    ship.setY(Math.random() * 801);
+    ship.setXSpeed(0); 
+    ship.setYSpeed(0); 
+    ship.setX(Math.random() * 801); 
+    ship.setY(Math.random() * 801); 
     ship.setDirection(Math.random() * 361);
   }
 }
