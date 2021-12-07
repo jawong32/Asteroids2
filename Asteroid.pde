@@ -1,12 +1,14 @@
 class Asteroid extends Floater {
   private double rotSpeed;
+  private double size;
 
   public Asteroid() {
+    size = Math.random() * 40 + 30;
     double[][] ddh = new double[64][2];
     double t = Math.PI / 32; 
     for (int i = 0; i < ddh.length; i++) {
       if (i == 0) {
-        ddh[i][0] = 50;
+        ddh[i][0] = size;
         ddh[i][1] = 0;
         continue;
       }
@@ -48,6 +50,10 @@ class Asteroid extends Floater {
     turn(rotSpeed);
   }
 
+  public boolean collide(double x, double y) {
+    return dist((float) myCenterX, (float) myCenterY, (float) x, (float) y) <= size + 10;
+  }
+
   // Override show to have fill and stroke be different colors
   public void show () {             
     fill(myColor);   
@@ -63,6 +69,7 @@ class Asteroid extends Floater {
     }
     endShape(CLOSE);
     rotate(-1*dRadians);
+    fill(255);
     translate(-1*(float)myCenterX, -1*(float)myCenterY);
     strokeWeight(1);
   }

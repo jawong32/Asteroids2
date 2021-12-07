@@ -1,3 +1,5 @@
+import java.util.*;
+
 Spaceship ship = new Spaceship();
 Star[] stars = new Star[65];
 ArrayList<Asteroid> asteroids = new ArrayList<Asteroid>();
@@ -7,7 +9,7 @@ public void setup() {
   for (int i = 0; i < stars.length; i++) {
     stars[i] = new Star();
   }
-  for (int i = 0; i < 25; i++) {
+  for (int i = 0; i < 50; i++) {
     asteroids.add(new Asteroid());
   }
 }
@@ -18,12 +20,19 @@ public void draw() {
     star.move();
     star.show();
   }
-  for (Asteroid asteroid : asteroids) {
-    asteroid.move();
-    asteroid.show();
-  }
   ship.move();
   ship.show();
+  fill(0, 0, 0, 200);
+
+  Iterator<Asteroid> astItr = asteroids.listIterator();
+  while (astItr.hasNext()) {
+    Asteroid ast = astItr.next();
+    ast.move();
+    ast.show();
+    if (ast.collide(ship.getX(), ship.getY())) {
+      astItr.remove();
+    }
+  }
 }
 
 public void keyPressed() {
