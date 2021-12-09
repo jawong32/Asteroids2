@@ -44,23 +44,23 @@ public void draw() {
 }
 
 public void keyPressed() {
-  if (key == 'w') {
+  if (key == 'w' || key == 'W') {
     ship.accelerate(0.25);
   }
 
-  if (key == 'a') {
+  if (key == 'a' || key == 'A') {
     ship.turn(-10);
   }
 
-  if (key == 's') {
+  if (key == 's' || key == 'S') {
     ship.accelerate(-0.25);
   }
 
-  if (key == 'd') {
+  if (key == 'd' || key == 'D') {
     ship.turn(10);
   }
 
-  if (key == 'h') {
+  if (key == 'h' || key == 'H') {
     ship.setXSpeed(0); 
     ship.setYSpeed(0); 
     ship.setX(Math.random() * 801); 
