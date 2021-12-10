@@ -14,7 +14,7 @@ class Floater //Do NOT modify the Floater class! Make changes in the Spaceship c
     //convert the current direction the floater is pointing to radians    
     double dRadians =myPointDirection*(Math.PI/180);     
     //change coordinates of direction of travel    
-    myXspeed += ((dAmount) * Math.cos(dRadians));    
+    myXspeed += ((dAmount) * Math.cos(dRadians));  
     myYspeed += ((dAmount) * Math.sin(dRadians));
   }   
   public void turn (double degreesOfRotation)   
