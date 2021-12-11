@@ -6,18 +6,23 @@
 		<script src="processing.js"></script>
 	</head>
 	<body>
-		<div> 
-			<header>
-			<h1>Asteroids</h1>
-		</header>
+	  <section> 
 			<canvas id="Asteroids2" data-processing-sources="Asteroids2.pde Floater.pde Spaceship.pde Star.pde Asteroid.pde Bullet.pde"></canvas>
-	    <footer>
-		    W - Accelerate Forward
-		    <br>A - Turn Left
-		    <br>S - Accelerate Backward
-		    <br>D - Turn Right
-		    <br>H - Hyperspace 
-	    </footer>
-		</div>
+	    <div>
+        <ul>
+          <li>W - Accelerate Forward</li>
+          <li>A - Turn Left</li>
+          <li>S - Accelerate Backward</li>
+          <li>D - Turn Right</li>
+          <li>H - Hyperspace</li>
+          <li>Space - Shoot</li>
+        </ul>
+        <p>
+          You can only have 12 bullets on the screen at any given moment.
+          <br>Asteroids naturally come back after you destroy enough.
+          <br>Turning will actually cause your ship to go in that direction.
+        </p>
+	    </div>
+		</section>
 	</body>
 </html>
